@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Dusigrosz</string>
+    <string name="mainScreenTopMessage">Witaj, o to twoi dłużnicy</string>
+    <string name="createNewDebtor">Create new Debtor</string>
+    <string name="totalDebtDefaultText">Total debt</string>
+    <string name="forgiveDebtDialogTitle">Czy na pewno chcesz wybaczyć dług?</string>
+    <string name="yesMessage">Tak</string>
+    <string name="noMessage">Nie</string>
+</resources>
