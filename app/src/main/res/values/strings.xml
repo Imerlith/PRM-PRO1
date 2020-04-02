@@ -6,4 +6,9 @@
     <string name="forgiveDebtDialogTitle">Czy na pewno chcesz wybaczyć dług?</string>
     <string name="yesMessage">Tak</string>
     <string name="noMessage">Nie</string>
+    <string name="modifyDebtorTopLabel">Wprowadź dane o dłużniku</string>
+    <string name="debtorDefaultNameText">Name</string>
+    <string name="debtAmountField">dług</string>
+    <string name="acceptDebtorText">Zaakceptuj</string>
+    <string name="rejectDebtorButton">Porzuć</string>
 </resources>

@@ -1,7 +1,9 @@
 package pl.pjatk.prm.dusigrosz
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
@@ -57,5 +59,10 @@ class MainActivity : AppCompatActivity(), ForgiveDebtResponse {
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, debtors)
         findViewById<ListView>(R.id.debtList).adapter = adapter
         updateTotalDebt()
+    }
+
+    fun onAddDebtorClick(v: View) {
+        val intent = Intent(this, ModifyDebtorActivity::class.java)
+        startActivityForResult(intent, 200)
     }
 }
