@@ -7,8 +7,10 @@
     <string name="yesMessage">Tak</string>
     <string name="noMessage">Nie</string>
     <string name="modifyDebtorTopLabel">Wprowadź dane o dłużniku</string>
-    <string name="debtorDefaultNameText">Name</string>
-    <string name="debtAmountField">dług</string>
+    <string name="debtorDefaultNameText">Nazwa dłużnika</string>
+    <string name="debtAmountField">Dług</string>
     <string name="acceptDebtorText">Zaakceptuj</string>
     <string name="rejectDebtorButton">Porzuć</string>
+    <string name="requiredFieldErrorText">Pole wymagane</string>
+    <string name="debtCannotBeNegativeErrorText">Dług musi być dodatni</string>
 </resources>

@@ -1,40 +1,83 @@
 package pl.pjatk.prm.dusigrosz
 
+import android.content.Intent
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_modify_debtor.*
+import pl.pjatk.prm.dusigrosz.models.Debtor
 
 class ModifyDebtorActivity : AppCompatActivity() {
-    private var isUpdate = false;
+    private var debtorID: Int? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_modify_debtor)
         intent?.let {
-            if (it.hasExtra("update")) {
-                isUpdate = it.getBooleanExtra("isUpdate", false)
+            if (it.hasExtra("debtorToUpdate")) {
+                val debtorToUpdate = it.getSerializableExtra("debtorToUpdate") as Debtor
+                debtorID = debtorToUpdate.id
+                debtorNameField.text.append(debtorToUpdate.name)
+                debtorDebtField.text.append(debtorToUpdate.debtAmount.toString())
             }
         }
     }
 
     fun onAcceptClick(v: View) {
         val name = debtorNameField.text.toString().trim()
-        val debt = debtorDebtField.text.toString().replace("\\s".toRegex(), "").toDoubleOrNull()
-        if (isInputValid(name, debt)) {
-            println("Input correct")
-            println("name: ${name}, debt:${debt}")
+        val debt = debtorDebtField.text.toString().toDoubleOrNull()
+        clearErrorMessages()
+        val inputError = getInputErrors(name, debt)
+        if (inputError == DebtorErrors.NO_ERRORS) {
+           setResult(
+               0,
+               Intent()
+                   .apply {
+                       putExtra("debtor", debt?.let { Debtor(name, it, debtorID) })
+                   }
+           )
+            finish()
         }
         else {
-            println("Error")
-            println("name: ${name}, debt:${debt}")
+           displayErrors(inputError)
         }
     }
 
-    private fun isInputValid(name: String, debt: Double?): Boolean {
-        return !name.isBlank() && debt != null && debt >= 0
+    private fun getInputErrors(name: String, debt: Double?): DebtorErrors {
+        if (name.isBlank() && (debt == null || debt < 0)) {
+            return DebtorErrors.ALL_ERROR
+        }
+        if (name.isBlank()) {
+            return DebtorErrors.NAME_ERROR
+        }
+        if (debt == null || debt < 0) {
+            return DebtorErrors.DEBT_ERROR
+        }
+        return DebtorErrors.NO_ERRORS
+    }
+
+    private fun displayErrors(inputError: DebtorErrors) {
+        when(inputError) {
+            DebtorErrors.NAME_ERROR -> debtorNameError.visibility = View.VISIBLE
+            DebtorErrors.DEBT_ERROR -> debtorDebtError.visibility = View.VISIBLE
+            else -> {
+                debtorNameError.visibility = View.VISIBLE
+                debtorDebtError.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    private fun clearErrorMessages() {
+        debtorNameError.visibility = View.INVISIBLE
+        debtorDebtError.visibility = View.INVISIBLE
     }
 
     fun onRejectClick(v: View) {
-
+        setResult(1)
+        finish()
     }
+}
+
+enum class DebtorErrors {
+    NO_ERRORS, NAME_ERROR, DEBT_ERROR, ALL_ERROR
 }

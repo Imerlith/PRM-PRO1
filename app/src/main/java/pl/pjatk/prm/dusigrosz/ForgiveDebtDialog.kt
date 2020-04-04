@@ -11,7 +11,7 @@ class ForgiveDebtDialog : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return AlertDialog.Builder(requireContext())
             .setTitle(getString(R.string.forgiveDebtDialogTitle))
-            .setMessage("Dlug ${debtor.firstName} wynosi ${debtor.debtAmount}")
+            .setMessage("Dlug ${debtor.name} wynosi ${debtor.debtAmount}")
             .setPositiveButton(getString(R.string.yesMessage)) { _, _ ->
                 activity?.let {
                     if (it is ForgiveDebtResponse) {
