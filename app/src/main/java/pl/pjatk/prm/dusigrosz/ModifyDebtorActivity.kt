@@ -1,7 +1,6 @@
 package pl.pjatk.prm.dusigrosz
 
 import android.content.Intent
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View

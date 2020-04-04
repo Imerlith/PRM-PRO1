@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity(), ForgiveDebtResponse {
         setContentView(R.layout.activity_main)
         generateInitialDebtList()
         updateTotalDebt()
+        setListeners()
     }
 
     private fun generateInitialDebtList() {
@@ -53,6 +54,25 @@ class MainActivity : AppCompatActivity(), ForgiveDebtResponse {
             list.add((adapter.getItem(i) as Debtor))
         }
         return list
+    }
+
+    private fun setListeners() {
+        val listView = findViewById<ListView>(R.id.debtList)
+        listView.setOnItemClickListener {
+                parent, _, position, _ ->
+                val selectedDebtor = parent.getItemAtPosition(position) as Debtor
+                val intent = Intent(this, ModifyDebtorActivity::class.java)
+                intent.putExtra("debtorToUpdate", selectedDebtor)
+                startActivityForResult(intent, 201)
+        }
+        listView.setOnItemLongClickListener {
+                parent, _, position, _ ->
+                val selectedDebtor = parent.getItemAtPosition(position) as Debtor
+                    ForgiveDebtDialog().apply {
+                        debtor = selectedDebtor
+                    }.show(supportFragmentManager, "forgiveDebtorDialog")
+                true
+        }
     }
 
     override fun onForgiveDebt(debtor: Debtor) {
