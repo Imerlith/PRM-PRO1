@@ -8,18 +8,16 @@
 
     <Button
         android:id="@+id/rejectDebtorButton"
-        android:layout_width="271dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="28dp"
         android:background="#F44336"
         android:onClick="onRejectClick"
         android:text="@string/rejectDebtorButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.438"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/acceptDebtorButton" />
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toEndOf="@+id/acceptDebtorButton" />
 
     <EditText
         android:id="@+id/debtorDebtField"
@@ -61,18 +59,15 @@
     <Button
         android:id="@+id/acceptDebtorButton"
         style="@style/Widget.AppCompat.Button"
-        android:layout_width="271dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="28dp"
         android:background="#4CAF50"
         android:onClick="onAcceptClick"
         android:text="@string/acceptDebtorText"
-        app:layout_constraintBottom_toTopOf="@+id/rejectDebtorButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.442"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/debtorDebtField" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/debtorDebtLabel"
@@ -104,7 +99,7 @@
         android:id="@+id/debtorNameError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/requiredFieldErrorText"
         android:textColor="#F44336"
         android:visibility="invisible"
@@ -125,5 +120,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.767"
         app:layout_constraintStart_toEndOf="@+id/debtorDebtLabel" />
+
+    <Button
+        android:id="@+id/simulateDebtPaymentButton"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="#2196F3"
+        android:onClick="onSimulateClick"
+        android:text="@string/simulateDebtPaymentButtonText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/debtorDebtField"
+        app:layout_constraintVertical_bias="0.326" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

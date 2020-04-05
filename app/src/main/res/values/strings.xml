@@ -13,4 +13,13 @@
     <string name="rejectDebtorButton">Porzuć</string>
     <string name="requiredFieldErrorText">Pole wymagane</string>
     <string name="debtCannotBeNegativeErrorText">Dług musi być dodatni</string>
+    <string name="rejectDebtorChangesDialogTitle">Czy na pewno chcesz porzucić zmiany?</string>
+    <string name="rejectDebtorChangesDialogMessage">Wprowadzone zmiany znikną bezpowrotnie</string>
+    <string name="simulateDebtPaymentButtonText">Symuluj spłatę długu</string>
+    <string name="startSimulationButtonText">Rozpocznij symulację</string>
+    <string name="stopSimulationButtonText">Zatrzymaj symulację</string>
+    <string name="provisionLabelText">% prowizji</string>
+    <string name="debtPaymentSpeedLabelText">Prędkość spłaty w PLN/SEC</string>
+    <string name="requiredRatesLabelText">Wymagana ilość rat aby spłacić dług z odsetkami</string>
+    <string name="remainingDebtLabelText">Pozostały dług</string>
 </resources>
