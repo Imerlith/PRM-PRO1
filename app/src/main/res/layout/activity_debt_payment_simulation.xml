@@ -27,7 +27,7 @@
         android:layout_marginTop="12dp"
         android:autofillHints=""
         android:ems="10"
-        android:inputType="numberSigned"
+        android:inputType="numberSigned|numberDecimal"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/debtPaymentSpeedLabel" />
@@ -37,7 +37,6 @@
         android:layout_width="329dp"
         android:layout_height="49dp"
         android:layout_marginTop="28dp"
-        android:text="dsadasdasdasdadsdadsasd"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +48,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="bbbbbbbbbbbbbbbbbbb"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +61,7 @@
         android:layout_marginEnd="16dp"
         android:autofillHints=""
         android:ems="10"
-        android:inputType="numberSigned"
+        android:inputType="numberSigned|numberDecimal"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/debtProvisionLabel" />
@@ -88,9 +86,9 @@
         android:layout_height="61dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
-        android:text="aaaaaaaaaaaaaaaaaaaa"
         android:textAlignment="center"
         android:textSize="24sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/simulationControllButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,6 +115,7 @@
         android:labelFor="@id/requiredNumberOfRates"
         android:text="@string/requiredRatesLabelText"
         android:textSize="18sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,4 +131,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/debtorName" />
+
+    <TextView
+        android:id="@+id/provisionErrorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hasToBeGraterThanZero"
+        android:textColor="#F44336"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/debtProvision"
+        app:layout_constraintEnd_toEndOf="@+id/debtProvision"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/debtProvision"
+        app:layout_constraintTop_toTopOf="@+id/debtProvision"
+        app:layout_constraintVertical_bias="0.063" />
+
+    <TextView
+        android:id="@+id/speedErrorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:text="@string/hasToBeGraterThanZero"
+        android:textColor="#F44336"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/debtPaymentSpeed"
+        app:layout_constraintEnd_toEndOf="@+id/debtPaymentSpeed"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/debtPaymentSpeed" />
 </androidx.constraintlayout.widget.ConstraintLayout>

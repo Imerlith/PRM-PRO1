@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Dusigrosz</string>
     <string name="mainScreenTopMessage">Witaj, o to twoi dłużnicy</string>
-    <string name="createNewDebtor">Create new Debtor</string>
+    <string name="createNewDebtor">Utwórz nowego dłużnika</string>
     <string name="totalDebtDefaultText">Total debt</string>
     <string name="forgiveDebtDialogTitle">Czy na pewno chcesz wybaczyć dług?</string>
     <string name="yesMessage">Tak</string>
@@ -22,4 +22,5 @@
     <string name="debtPaymentSpeedLabelText">Prędkość spłaty w PLN/SEC</string>
     <string name="requiredRatesLabelText">Wymagana ilość rat aby spłacić dług z odsetkami</string>
     <string name="remainingDebtLabelText">Pozostały dług</string>
+    <string name="hasToBeGraterThanZero"><![CDATA[Musi być > 0]]></string>
 </resources>

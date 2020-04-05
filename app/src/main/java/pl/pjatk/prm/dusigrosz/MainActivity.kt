@@ -20,16 +20,12 @@ class MainActivity : AppCompatActivity(), ForgiveDebtResponse {
     }
 
     private fun generateInitialDebtList() {
-        val debtors = ArrayList<Debtor>()
-        for (i in 1 until 30) {
-            val debt = (i+200).toDouble()
-            debtors.add(
-                Debtor(
-                    "FirstName LastName $i",
-                    debt
-                )
-            )
-        }
+        val debtors = mutableListOf<Debtor>(
+            Debtor("Jakub Dzeciątko", 1200.0),
+            Debtor("Paweł Kalbarczyk", 300.0),
+            Debtor("Wojciech Szadurski", 3332.20),
+            Debtor("Lena Ambicka", 414.123)
+        )
         setAdapterToDebtorList(debtors)
     }
 
@@ -39,7 +35,7 @@ class MainActivity : AppCompatActivity(), ForgiveDebtResponse {
         for (debtor in debtors) {
             newTotalDebt += debtor.debtAmount
         }
-        findViewById<TextView>(R.id.totalDebt).text = newTotalDebt.toString()
+        findViewById<TextView>(R.id.totalDebt).text = "Suma: $newTotalDebt"
     }
 
     private fun setAdapterToDebtorList(debtors: MutableList<Debtor>) {
